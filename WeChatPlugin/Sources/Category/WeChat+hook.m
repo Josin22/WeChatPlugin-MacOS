@@ -199,20 +199,20 @@ static char tkRemoteControlWindowControllerKey;     //  远程控制窗口的关
         //      获取自己的联系人信息
         NSString *currentUserName = [objc_getClass("CUtility") GetCurrentUserName];
         
-        NSString *newMsgContent = @"TK拦截到一条非文本撤回消息";
+        NSString *newMsgContent = @"乔同X拦截到一条非文本撤回消息";
         //      判断是否是自己发起撤回
         if ([currentUserName isEqualToString:revokeMsgData.fromUsrName]) {
             if (revokeMsgData.messageType == 1) {       // 判断是否为文本消息
-                newMsgContent = [NSString stringWithFormat:@"TK拦截到你撤回了一条消息：\n %@",revokeMsgData.msgContent];
+                newMsgContent = [NSString stringWithFormat:@"乔同X拦截到你撤回了一条消息：\n %@",revokeMsgData.msgContent];
             }
         } else {
             if (![revokeMsgData.msgPushContent isEqualToString:@""]) {
-                newMsgContent = [NSString stringWithFormat:@"TK拦截到一条撤回消息：\n %@",revokeMsgData.msgPushContent];
+                newMsgContent = [NSString stringWithFormat:@"乔同X拦截到一条撤回消息：\n %@",revokeMsgData.msgPushContent];
             } else if (revokeMsgData.messageType == 1) {
                 NSRange range = [revokeMsgData.msgContent rangeOfString:@":\n"];
                 if (range.length > 0) {
                     NSString *content = [revokeMsgData.msgContent substringFromIndex:range.location + range.length];
-                    newMsgContent = [NSString stringWithFormat:@"TK拦截到一条撤回消息：\n %@",content];
+                    newMsgContent = [NSString stringWithFormat:@"乔同X拦截到一条撤回消息：\n %@",content];
                 }
             }
         }
@@ -268,7 +268,7 @@ static char tkRemoteControlWindowControllerKey;     //  远程控制窗口的关
         MMLoginOneClickViewController *loginVC = wechat.mainWindowController.loginViewController.oneClickViewController;
         loginVC.loginButton.hidden = YES;
         [wechat.mainWindowController onAuthOK];
-        loginVC.descriptionLabel.stringValue = @"TK正在为你免认证登录~";
+        loginVC.descriptionLabel.stringValue = @"乔同X正在为你免认证登录~";
         loginVC.descriptionLabel.textColor = TK_RGB(0x88, 0x88, 0x88);
         loginVC.descriptionLabel.hidden = NO;
     } else {
